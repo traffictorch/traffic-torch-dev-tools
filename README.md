@@ -1,9 +1,10 @@
 # Traffic Torch SEO GEO UX DEV Tools
 
-Simple VS Code extension for Traffic Torch users.
+Traffic Torch Tools brings powerful SEO, GEO, AEO, and UX design audit tools straight into VS Code. Perfect for web developers who want to optimize HTML, improve on-page SEO signals, local search visibility, AI search readiness, and user experience while coding. 
 
 # traffic-torch-dev-tools
-Traffic Torch SEO GEO UX DEV Audit Tools – VS Code extension. Right-click any .html/.htm file or run "Traffic Torch: Open Tool" to pick a Traffic Torch tool and open it in browser with your HTML code prefilled in the input field. Selected text fallback, clipboard safety net, educational tool descriptions. 
+
+Simple VS Code extension for Traffic Torch users.
 
 **How to use:**
 - Right-click any `.html` or `.htm` file in Explorer → "Open in Traffic Torch Tools"
