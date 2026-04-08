@@ -1,4 +1,4 @@
-# Traffic Torch Tools
+# Traffic Torch SEO GEO UX DEV Tools
 
 Simple VS Code extension for Traffic Torch users.
 
