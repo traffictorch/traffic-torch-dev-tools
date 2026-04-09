@@ -73,6 +73,6 @@ Perfect for developers who want real-time 360° SEO + UX health scores, competit
 
 Built for **[traffictorch.net](https://traffictorch.net)** — Your instant 360° SEO, GEO, AEO & UX health analysis platform.
 
+Made with ❤️ for web developers who care about modern SEO and great user experience.
 ---
 
-Made with ❤️ for web developers who care about modern SEO and great user experience.
