@@ -1,26 +1,78 @@
-# Traffic Torch SEO GEO UX DEV Tools
+# Traffic Torch - SEO, GEO, AEO & UX Audit Tools for VS Code
 
-Traffic Torch Tools brings powerful SEO, GEO, AEO, and UX design audit tools straight into VS Code. Perfect for web developers who want to optimize HTML, improve on-page SEO signals, local search visibility, AI search readiness, and user experience while coding.
+**Instant SEO, GEO, AEO & UX audits directly inside VS Code.**
 
-Quickly send your HTML (or selected code) to Traffic Torch’s instant 360° analyzer, topical authority checker, entity tools, or UX friction detectors. Selected text fallback, clipboard safety for large files, and one-sentence explanations help you learn modern best practices on the fly.
+Right-click any HTML file or use the sidebar to send your code to Traffic Torch’s powerful analysis tools. Small selections **auto-fill and run instantly**. Large files are safely copied to clipboard with clear instructions.
 
-# traffic-torch-dev-tools
+Perfect for developers who want real-time 360° SEO + UX health scores, competitive gap analysis, AI-generated fixes, topical authority checks, entity extraction, and educational insights while coding.
 
-Simple VS Code extension for Traffic Torch users.
+## How It Works
 
-**How to use:**
-- Right-click any `.html` or `.htm` file in Explorer → "Open in Traffic Torch Tools"
-- Or press `Ctrl+Shift+P` and type "Traffic Torch: Open Tool"
+### 1. Sidebar (Activity Bar)
+- Click the **Traffic Torch** icon in the left Activity Bar
+- Browse the clean list of 14 tools
+- Click any tool:
+  - Small selection or file → automatically fills the input and runs the audit
+  - Large file → copied to clipboard + pop-up appears with instructions
 
-Picks a tool from the list and opens https://traffictorch.net/... with your code prefilled via `?html=` parameter.
+### 2. Right-Click Context Menu
+- Right-click any `.html` or `.htm` file in Explorer **or** inside the open editor
+- Choose **"Audit with Traffic Torch"**
+- Select the desired tool from the dropdown
+- Same smart behaviour: auto-fill for small content, clipboard for large files
 
-**Features**
-- Uses selected text if highlighted
-- Clipboard fallback for large files or no editor
-- Educational one-sentence descriptions
-- Tool list loaded from `data/tools.json` (easy to update)
+### Smart Content Handling
+- **Selected text** is always preferred (even inside huge files)
+- Small/medium content → opens with `?input=` parameter (auto-fills + auto-runs on traffictorch.net)
+- Large content (> 8000 characters) → copied to clipboard + modal pop-up with clear paste instructions
 
-Built for https://traffictorch.net – Instant 360° SEO GEO AEO & UX health anaylis tools.
+## Features
+
+- One-click access to 14 powerful Traffic Torch tools
+- Smart selection vs full-file detection
+- Safe clipboard fallback for large HTML files
+- Clean modal pop-ups with user-friendly instructions
+- Fully respects VS Code light/dark mode
+- No backend, no API keys, no duplicated UI — all intelligence stays on your Cloudflare site
+
+## Supported Tools
+
+- ⚜️ Topical Authority Audit
+- 🧬 SEO Entity Extractor Tool
+- 🎯 SEO Intent Tool
+- 📍 Local SEO Tool
+- 🛒 Product SEO Tool
+- 🔍 AI Search Optimization Tool
+- 🎙️ AI Voice Search Tool
+- 🤖 AI Content Audit Tool
+- ⚖️ SEO UX Tool
+- ⛔ Quit Risk UX Tool
+- 🔑 Keyword Research Tool
+- 🗝️ Keyword Placement Tool
+- 🆚 Keyword vs Tool
+- ⚙️ Schema Generator
+
+## Icons
+
+- **Activity Bar icon**: `media/icon.svg` (24×24 px)
+- **Marketplace icon**: `media/icon.png` (256×256 px)
 
 ## Installation
-Install from VS Code Marketplace (coming soon) or load the .vsix from Releases.
+
+1. Download the latest `.vsix` from [Releases](https://github.com/traffictorch/traffic-torch-dev-tools/releases)
+2. In VS Code: Extensions view → `...` → **Install from VSIX...**
+3. Reload Window
+
+( Marketplace listing coming soon )
+
+## Usage Tips
+
+- Highlight specific sections for faster, targeted audits
+- Use the full file when you want a complete page analysis
+- For very large files, paste from clipboard into the textarea and click "Analyze Code"
+
+Built for **[traffictorch.net](https://traffictorch.net)** — Your instant 360° SEO, GEO, AEO & UX health analysis platform.
+
+---
+
+Made with ❤️ for web developers who care about modern SEO and great user experience.
