@@ -1,0 +1,76 @@
+{
+  "name": "traffic-torch-dev-tools",
+  "displayName": "Traffic Torch",
+  "description": "Instant SEO, GEO, AEO & UX audit extension for developers. Open the Traffic Torch panel for 360° SEO + UX health scores, implementation gap analysis, priority fixes, and educational insights directly from VS Code.",
+  "version": "1.1.0",
+  "publisher": "traffic-torch",
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "activationEvents": [
+    "onStartupFinished",
+    "onView:trafficTorch.sidebar",
+    "onCommand:trafficTorch.auditHtml"
+  ],
+"contributes": {
+  "viewsContainers": {
+    "activitybar": [
+      {
+        "id": "trafficTorch",
+        "title": "Traffic Torch",
+        "icon": "media/icon.svg"
+      }
+    ]
+  },
+  "views": {
+    "trafficTorch": [
+      {
+        "id": "trafficTorch.sidebar",
+        "name": "Traffic Torch Tools",
+        "type": "webview"
+      }
+    ]
+  },
+  "menus": {
+    "editor/context": [
+      {
+        "command": "trafficTorch.auditHtml",
+        "when": "resourceExtname == '.html' || resourceExtname == '.htm'",
+        "group": "navigation@1"
+      }
+    ],
+    "explorer/context": [
+      {
+        "command": "trafficTorch.auditHtml",
+        "when": "resourceExtname == '.html' || resourceExtname == '.htm'",
+        "group": "navigation@1"
+      }
+    ]
+  },
+  "commands": [
+    {
+      "command": "trafficTorch.auditHtml",
+      "title": "Audit with Traffic Torch",
+      "category": "Traffic Torch"
+    }
+  ]
+},
+  "main": "./extension.js",
+  "icon": "media/icon.png",
+  "categories": ["Other", "Linters", "Debuggers", "AI", "Education"],
+   "keywords": [
+    "seo", "ux", "audit", "geo", "aeo", "traffic-torch", "html-audit", 
+    "content-audit", "keyword-research", "entity-extractor", "ai-search", 
+    "local-seo", "topical-authority", "seo-intent", "ux-clarity"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/traffictorch/traffic-torch-dev-tools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/traffictorch/traffic-torch-dev-tools/issues"
+  },
+  "homepage": "https://github.com/traffictorch/traffic-torch-dev-tools#readme",
+  "license": "ISC",
+  "type": "commonjs"
+}
