@@ -14,24 +14,20 @@ function activate(context) {
     )
   );
 
-  // Right-click context menu command with tool selector + proper selection handling
+  // Right-click context menu command with tool selector + selection handling
   const auditHtmlCommand = vscode.commands.registerCommand('trafficTorch.auditHtml', async (uri) => {
     let content = '';
 
-    // Get content - prefer selection if available, otherwise full file
     const editor = vscode.window.activeTextEditor;
 
     if (editor && !editor.selection.isEmpty) {
-      // User has selected text → use only selection (even in large file)
       content = editor.document.getText(editor.selection);
-    } 
+    }
     else if (uri) {
-      // Right-clicked in Explorer → open full file
       const document = await vscode.workspace.openTextDocument(uri);
       content = document.getText();
-    } 
+    }
     else if (editor) {
-      // Fallback: full file from active editor
       content = editor.document.getText();
     }
 
@@ -40,22 +36,25 @@ function activate(context) {
       return;
     }
 
-    // Show Quick Pick with your custom labels
+    // Updated tool list (Oct 2026)
     const tools = [
-      { label: "⚜️ Topical Authority Audit",      tool: "topical-authority-audit-tool" },
-      { label: "🧬 SEO Entity Extractor Tool",    tool: "seo-entity-extractor-tool" },
-      { label: "🎯 SEO Intent Tool",              tool: "seo-intent-tool" },
-      { label: "📍 Local SEO Tool",               tool: "local-seo-tool" },
-      { label: "🛒 Product SEO Tool",             tool: "product-seo-tool" },
-      { label: "🔍 AI Search Optimization Tool",  tool: "ai-search-optimization-tool" },
-      { label: "🎙️ AI Voice Search Tool",        tool: "ai-voice-search-tool" },
-      { label: "🤖 AI Content Audit Tool",        tool: "ai-audit-tool" },
-      { label: "⚖️ SEO UX Tool",                  tool: "" },
-      { label: "⛔ Quit Risk UX Tool",            tool: "quit-risk-tool" },
-      { label: "🔑 Keyword Research Tool",        tool: "keyword-research-tool" },
-      { label: "🗝️ Keyword Placement Tool",       tool: "keyword-tool" },
-      { label: "🆚 Keyword vs Tool",              tool: "keyword-vs-tool" },
-      { label: "⚙️ Schema Generator",             tool: "schema-generator" }
+      { label: "📈 NUSA Tool (Home – URL only)",          tool: "" },
+      { label: "🗼 Lighthouse Plus",                      tool: "lighthouse-plus-tool" },
+      { label: "🚀 AEO Performance",                      tool: "aeo-performance-tool" },
+      { label: "⚖️ SEO + UX",                             tool: "seo-ux-tool" },
+      { label: "⚜️ Topical Authority Audit",              tool: "topical-authority-audit-tool" },
+      { label: "🧬 SEO Entity Extractor Tool",            tool: "seo-entity-extractor-tool" },
+      { label: "🎯 SEO Intent Tool",                      tool: "seo-intent-tool" },
+      { label: "📍 Local SEO Tool",                       tool: "local-seo-tool" },
+      { label: "🛒 Product SEO Tool",                     tool: "product-seo-tool" },
+      { label: "🔍 AI Search Optimization Tool",          tool: "ai-search-optimization-tool" },
+      { label: "🎙️ AI Voice Search Tool",                tool: "ai-voice-search-tool" },
+      { label: "🤖 AI Content Audit Tool",                tool: "ai-audit-tool" },
+      { label: "⛔ Quit Risk UX Tool",                    tool: "quit-risk-tool" },
+      { label: "🔑 Keyword Research Tool",                tool: "keyword-research-tool" },
+      { label: "🗝️ Keyword Placement Tool",               tool: "keyword-tool" },
+      { label: "🆚 Keyword vs Tool",                      tool: "keyword-vs-tool" },
+      { label: "⚙️ Schema Generator",                     tool: "schema-generator" }
     ];
 
     const selected = await vscode.window.showQuickPick(tools, {
@@ -63,18 +62,27 @@ function activate(context) {
       matchOnDescription: true
     });
 
-    if (!selected) return; // User cancelled
+    if (!selected) return;
 
-    const baseUrl = selected.tool 
+    const baseUrl = selected.tool
       ? `https://traffictorch.net/${selected.tool}/`
       : 'https://traffictorch.net/';
 
     const trimmed = content.trim();
 
+    // NUSA is URL-only
+    if (!selected.tool) {
+      vscode.window.showInformationMessage(
+        'NUSA Tool accepts a URL only. Paste your page URL into the tool.',
+        { modal: false }
+      );
+      vscode.env.openExternal(vscode.Uri.parse(baseUrl));
+      return;
+    }
+
     if (trimmed.length > 8000) {
-      // LARGE content → clipboard + modal pop-up
       await vscode.env.clipboard.writeText(trimmed);
-      
+
       vscode.window.showInformationMessage(
         '✅ Large HTML copied to clipboard!',
         {
@@ -87,9 +95,8 @@ function activate(context) {
           vscode.env.openExternal(vscode.Uri.parse(baseUrl));
         }
       });
-    } 
+    }
     else if (trimmed.length > 0) {
-      // SMALL / MEDIUM content (including selections) → auto-fill
       const encoded = encodeURIComponent(trimmed);
       const finalUrl = baseUrl + `?input=${encoded}`;
       vscode.env.openExternal(vscode.Uri.parse(finalUrl));
@@ -97,7 +104,7 @@ function activate(context) {
   });
 
   context.subscriptions.push(auditHtmlCommand);
-  console.log('✅ Traffic Torch context menu with tool picker + selection fix registered');
+  console.log('✅ Traffic Torch context menu with updated tools registered');
 }
 
 exports.activate = activate;

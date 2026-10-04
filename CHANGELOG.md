@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0] - 2026-10-04
+
+### Added
+- 📈 NUSA Tool (Home page – URL-only)
+- 🗼 Lighthouse Plus
+- 🚀 AEO Performance
+- ⚖️ SEO + UX (moved to its own dedicated page)
+
+### Changed
+- Schema Generator now accepts HTML input and validates
+- All tools now support CMS-specific fixes and Ask AI features
+- Updated sidebar and context menu tool list to match live site
+
 ## [1.1.0] - 2026-04-09
 
 ### Added

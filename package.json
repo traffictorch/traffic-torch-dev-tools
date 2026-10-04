@@ -2,7 +2,7 @@
   "name": "traffic-torch-dev-tools",
   "displayName": "Traffic Torch",
   "description": "Instant SEO, GEO, AEO & UX audit extension for developers. Open the Traffic Torch panel for 360° SEO + UX health scores, implementation gap analysis, priority fixes, and educational insights directly from VS Code.",
-  "version": "1.1.0",
+  "version": "1.3.0",
   "publisher": "traffic-torch",
   "engines": {
     "vscode": "^1.110.0"
